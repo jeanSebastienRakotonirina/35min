@@ -41,4 +41,14 @@ Dans une balise script, on crée une nouvelle instance, dans laquelle on fait pa
         })
     </script>
 
-A partir de là, Vue est initialisé sur toute mon application.
+A partir de là, Vue est initialisé sur toute mon application. Le code contenu dans app va avoir une liaison directe avec l'interface. On va pouvoir changer une valeur qui serait présente à l'intérieur du script et ça changerait en temps réel sur l'interface, très rapide à implémenter.
+
+4. Les données (l'état)
+
+Elles vont être contenu dans une autre clé de mon objet javascript qui est la propriété data. Data va reprendre un autre objet javascript, je vais pouvoir entrer toutes les données que je veux. Toutes ces données s'appellent l'état.
+
+Coder en dur, on a un utilisateur user qui contient le string Bertrand. Pour afficher cette donnée ou état dans la balise id app, on va faire du rendu déclaratif entre 2 accolades ouvrantes et fermantes.
+
+{{ user }}
+
+Ainsi, je peux voir le contenu de ma variable interpolé directement. Je peux modifier ça en temps réel dans ma console javascript de mon navigateur. En tapant app.user="Jean-Sébastien" va remplacer la valeur Bertrand en temps réel. On va pouvoir modifier les données de l'interface de façon réactive en temps réel.
