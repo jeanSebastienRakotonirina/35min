@@ -19,12 +19,15 @@
             </div>
 
             <h1 class="display-4" v-if="commandes.length > 0">Produits commandés</h1>
-            <ul>
-                <li v-for="commande in commandes">{{ commande }}</li>
-            </ul>
-
+            
+            <div class="row">
+                <fiche-produit v-for="commande in commandes"></fiche-produit>
+            </div>
+            
             <h1 v-bind:class="affichage">Produits disponibles</h1>
             <div class="row">
+                <fiche-produit v-for="produit in produits" v-bind:nom="produit"></fiche-produit>
+
                 <div class="col-3" v-for="produit in produits">
                     <p class="jumbotron">
                         {{ produit }} <br>
@@ -35,6 +38,13 @@
         </div>
     </div>
     <script>
+        Vue.component('fiche-produit', {
+            template: `
+            <p class='jumbotron'>
+                {{ nom }}
+            </p>`,
+            props: ['nom']
+        })
         var app = new Vue({
             el: "#app",
             data: {
