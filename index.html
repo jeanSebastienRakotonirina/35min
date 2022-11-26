@@ -17,11 +17,18 @@
                     Vous êtes connecté en tant que {{ user }}
                 </p>
             </div>
+
+            <h1 class="display-4">Produits commandés</h1>
+            <ul>
+                <li v-for="commande in commandes">{{ commande }}</li>
+            </ul>
+
             <h1 class="display-4">Produits disponibles</h1>
             <div class="row">
                 <div class="col-3" v-for="produit in produits">
                     <p class="jumbotron">
-                        {{ produit }}
+                        {{ produit }} <br>
+                        <button v-on:click="commander(produit)">Commander</button>
                     </p>
                 </div>
             </div>
@@ -33,7 +40,12 @@
             data: {
                 user: "Bertrand",
                 produits: ["Pizza", "Hamburger", "Cheeseburger", "Tacos"],
-                commandes: []
+                commandes: [],
+            },
+            methods: {
+                commander: function(produit) {
+                    this.commandes.push(produit)
+                }
             }
         })
     </script>
