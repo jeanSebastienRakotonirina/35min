@@ -52,3 +52,5 @@ Coder en dur, on a un utilisateur user qui contient le string Bertrand. Pour aff
 {{ user }}
 
 Ainsi, je peux voir le contenu de ma variable interpolé directement. Je peux modifier ça en temps réel dans ma console javascript de mon navigateur. En tapant app.user="Jean-Sébastien" va remplacer la valeur Bertrand en temps réel. On va pouvoir modifier les données de l'interface de façon réactive en temps réel.
+
+On vient de voir comment passer des données de la balise script vers la balise html div#app.
