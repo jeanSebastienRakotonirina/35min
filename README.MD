@@ -66,7 +66,6 @@ Html :
         <li v-for="commande in commandes">{{ commande }}</li>   
     </ul>
 
-...
 La liste se remplit, l'interface est dynamique. Faire un meilleur rendu, car il n'y a pas encore de produits commandés. Le titre s"affiche quand même.
 
 5. La directive conditionnelle v-if
