@@ -47,3 +47,15 @@ script :
             props: ['nom']
 
 Cela me permet de l'afficher comme une propriété data.
+
+script :
+
+            template: `
+            <div class="col-3">
+                <p class='jumbotron'>
+                    {{ nom }} <br />
+                    <button v-on:click="commander(nom)">Commander</button>
+                </p>
+            </div>`
+
+Problème pour l'instant, on ne peut pas déclencher la fonction commander. Elle se trouve à un niveau supérieur. Comment faire ? 

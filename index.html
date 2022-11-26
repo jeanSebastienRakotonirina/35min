@@ -40,9 +40,13 @@
     <script>
         Vue.component('fiche-produit', {
             template: `
-            <p class='jumbotron'>
-                {{ nom }}
-            </p>`,
+            <div class="col-3">
+                <p class='jumbotron'>
+                    {{ nom }} <br />
+                    <button v-on:click="commander(nom)">Commander</button>
+                </p>
+            </div>`
+            ,
             props: ['nom']
         })
         var app = new Vue({
