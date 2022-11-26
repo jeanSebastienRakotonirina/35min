@@ -1,55 +1,35 @@
 # Développer une interface de commande comme chez McDo
 
-## Les composants
+## Les écouteurs d'évènements (vers le composant)
+
+Je dois vontacter mon comosant en amont, mon instance de vue; pour lui dire d'ajouter telle valeur, dans le tableau. Dans composant, je peux aussi défénir des méthodes qui appartiendront à fiche produit.
+
+Composant :
+
+            methods: {
+                passer_commande: function(produit){
+                    
+                }
+
+C'est une fonction qui prendra en paramètre le produit. Je vais lui dire d'émettre une fonction personnalisée.
+
+Composant :
+
+            methods: {
+                passer_commande: function(produit){
+                    this.$emit("commande_passee", produit)
+                }
+            }
+
+En second paramètre, on fait passer le produit selectionner par l'évènement onclick.
 
 html :
 
-            <h1 v-bind:class="affichage">Produits disponibles</h1>
-            <div class="row">
-                <div class="col-3" v-for="produit in produits">
-                    <p class="jumbotron">
-                        {{ produit }} <br>
-                        <button v-on:click="commander(produit)">Commander</button>
-                    </p>
-                </div>
-            </div>
+    <button v-on:click="passer_commande(nom)">Commander</button>
 
-On va remplacer tout ça par une simple balise sur mesure.
-
-html :
-
-    <fiche-produit></fiche-produit>
-
-Au dessu de var app=({}), on place la déclaration de notre composant :
-
-script :
+composant :
 
         Vue.component('fiche-produit', {
-            
-        })
-
-En premier paramètre le nom du composant et en deuxième paramètre un objet javascript. La première propriété qu'on peut lui passer s'appelle template. Elle prendra une chaine de caractère en paramètre qui va définir l'affichage en html de notre composant.
-
-L'idée est de recevoir des balises html sous forme de propriétés. Dans le composant, créer une méthode props (propriétés) que l'application va être amené à recevoir, seront simplement listés dans un tableau.
-
-Html: 
-
-    <fiche-produit v-for="produit in produits" v-bind:nom="produit"></fiche-produit>
-
-On va bindé sa proporiété nom au produit, on fait boucler chaque produit dans une variable produit et à chaque fois, on va associer le nom au produit passer en paramètre.
-
-script :
-
-            template: `
-            <p class='jumbotron'>
-                {{ nom }}
-            </p>`,
-            props: ['nom']
-
-Cela me permet de l'afficher comme une propriété data.
-
-script :
-
             template: `
             <div class="col-3">
                 <p class='jumbotron'>
@@ -57,5 +37,32 @@ script :
                     <button v-on:click="commander(nom)">Commander</button>
                 </p>
             </div>`
+            ,
+            props: ['nom'],
+            methods: {
+                passer_commande: function(produit){
+                    this.$emit("commande_passee", produit)
+                }
+            }
+        })
 
-Problème pour l'instant, on ne peut pas déclencher la fonction commander. Elle se trouve à un niveau supérieur. Comment faire ? 
+Maintenant, le tout est de revenir sur mon instance de vue et de déclencher ma fonction commander au moment où je reçois un évènement commande_passer :
+
+Instance de vue :
+
+        var app = new Vue({
+            el: "#app",
+            data: {
+                user: "Bertrand",
+                produits: ["Pizza", "Hamburger", "Cheeseburger", "Tacos"],
+                commandes: [],
+                affichage: "display-4"
+            },
+            methods: {
+                commander: function(produit) {
+                    this.commandes.push(produit)
+                }
+            }
+        })
+
+Comment faire ?

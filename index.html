@@ -31,7 +31,7 @@
                 <div class="col-3" v-for="produit in produits">
                     <p class="jumbotron">
                         {{ produit }} <br>
-                        <button v-on:click="commander(produit)">Commander</button>
+                        <button v-on:click="passer_commande(nom)">Commander</button>
                     </p>
                 </div>
             </div>
@@ -47,7 +47,12 @@
                 </p>
             </div>`
             ,
-            props: ['nom']
+            props: ['nom'],
+            methods: {
+                passer_commande: function(produit){
+                    this.$emit("commande_passee", produit)
+                }
+            }
         })
         var app = new Vue({
             el: "#app",
