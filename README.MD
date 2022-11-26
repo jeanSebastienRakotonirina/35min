@@ -48,11 +48,11 @@ Côté script :
 
 Côté Html :
 
-    "<div class="col-3" v-for="produit in produits">""
+<div class="col-3" v-for="produit in produits">
 
 et
 
-        "<button v-on:click="commander(produit)">Commander</button>"
+<button v-on:click="commander(produit)">Commander</button>
 
 
 Pour faire passer les produits, soit on utilise l'index, soit le produit en string.
