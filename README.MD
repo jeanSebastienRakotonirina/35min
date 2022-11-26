@@ -59,7 +59,7 @@ Pour faire passer les produits, soit on utilise l'index, soit le produit en stri
 
 4. Afficher la liste des commandes
 
-    ####<h1 class="display-4">Produits commandés</h1>
+    #####<h1 class="display-4">Produits commandés</h1>
 
     <ul>
 
