@@ -59,16 +59,12 @@ Pour faire passer les produits, soit on utilise l'index, soit le produit en stri
 
 4. Afficher la liste des commandes
 
-    <h1 class="display-4">
-    
-    Produits commandés
-    
-    </h1>
+    ####<h1 class="display-4">Produits commandés</h1>
 
     <ul>
 
         <li v-for="commande in commandes">{{ commande }}</li>
-
+        
     </ul>
 
 La liste se remplit, l'interface est dynamique. Faire un meilleur rendu, car il n'y a pas encore de produits commandés. Le titre s"affiche quand même.
