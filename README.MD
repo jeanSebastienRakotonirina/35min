@@ -69,3 +69,41 @@ Html :
 La liste se remplit, l'interface est dynamique. Faire un meilleur rendu, car il n'y a pas encore de produits commandés. Le titre s"affiche quand même.
 
 5. La directive conditionnelle v-if
+
+html :
+
+    <h1 class="display-4" v-if="false">Produits commandés</h1>
+
+Je peux ainsi mettre une condition sur l'affichage, si je mets false, le titre ne s'affiche pas.
+
+html :
+
+    <h1 class="display-4" v-if="commandes.length > 0">Produits commandés</h1>
+
+Maintenant je n'affiche le titre que si la longueur du tableau de commandes est supérieur à 0, autrement dit, si le tableau de commandes comporte un produit au moins.
+
+Maintenant, si je veux faire varier des attributs html, par exemple des classes disponibles, comment faire dans VueJS ?
+
+6. La directive v-bind
+
+Je vais pouvoir relier une classe par exemple, display-4, à une valeur dans mes données.
+
+Par exemple, une variable affichage que je vais aller définir 
+
+Dans html :
+
+    <h1 v-bind:class="affichage">Produits disponibles</h1>
+
+Dans data :
+
+    affichage: "display-4"
+
+Les produits disponibles sont bindés à la variable affichage définis dans data, par contre je peux venir la modifier "display-1". Il est possible de faire varier tout l'affichage directement.
+
+On peut constater dans l'application 2 blocs de codes relativement similaires, même si ils ne sont pas codés de la même façon : 
+
+- Celui pour afficher les commandes
+- Et l'autre pour afficher les produits disponibles
+
+On aurait envie de remettre tout ça dans une même forme et de pouvoir réutiliser le code.
+

@@ -18,12 +18,12 @@
                 </p>
             </div>
 
-            <h1 class="display-4">Produits commandés</h1>
+            <h1 class="display-4" v-if="commandes.length > 0">Produits commandés</h1>
             <ul>
                 <li v-for="commande in commandes">{{ commande }}</li>
             </ul>
 
-            <h1 class="display-4">Produits disponibles</h1>
+            <h1 v-bind:class="affichage">Produits disponibles</h1>
             <div class="row">
                 <div class="col-3" v-for="produit in produits">
                     <p class="jumbotron">
@@ -41,6 +41,7 @@
                 user: "Bertrand",
                 produits: ["Pizza", "Hamburger", "Cheeseburger", "Tacos"],
                 commandes: [],
+                affichage: "display-4"
             },
             methods: {
                 commander: function(produit) {
