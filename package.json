@@ -1,0 +1,15 @@
+{
+  "name": "35min",
+  "version": "1.0.0",
+  "description": "Introduction à Vue JS d'après la vidéo de La tech avec Bertrand",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "vue",
+    "js"
+  ],
+  "author": "jeanSebastienRakotonirina",
+  "license": "MIT"
+}
